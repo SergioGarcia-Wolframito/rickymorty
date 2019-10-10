@@ -3,6 +3,8 @@ import yargs from 'yargs';
 
 const baseurl = "https://rickandmortyapi.com/api/";
 
+//Función para obtener el nombre de todos los personajes de Rick y Morty
+
 const getURL = function(url,results){
 
   request({url : url, json:true}, (error,response)=>{
@@ -30,13 +32,12 @@ const getURL = function(url,results){
        }
     
   });
-
   
 }
 
+//Función para obtener el nombre de los personajes dependiendo de su "status"
 
 const getStatus = function(url,results,status){
-
 
   request({url : url, json:true}, (error,response)=>{
   
@@ -69,14 +70,17 @@ const getStatus = function(url,results,status){
   
 }
 
+//Función list en la que se alojan las variables 'status' y 'page'.
+
 const list = function(argv){
     const datos_lista = {
-     
+
       status: argv.status,
       page: argv.page,
+
   };
 
-
+  //-- list, listar todos los personajes.
   if(datos_lista.status == null && datos_lista.page == null){
 
   
@@ -87,6 +91,7 @@ const list = function(argv){
 
   }else{
 
+    //-- list --page, obtener todos los personajes de una sola página
       if(datos_lista.page !=null){
 
         let total_url = "https://rickandmortyapi.com/api/character/?page=" + datos_lista.page;
@@ -105,6 +110,7 @@ const list = function(argv){
 
       }
 
+      //-- list --status, listar personajes segun su status, "Alive" o "Dead"
       if(datos_lista.status != null){
 
 
@@ -113,15 +119,13 @@ const list = function(argv){
 
       getStatus(uri,arru,datos_lista.status);
       
-
       }
-
-
 
   }
 
 }
 
+//Función que aloja las variables 'name' e 'id'
 const view = function(argv){
 
     const datos_personaje = {
@@ -129,10 +133,9 @@ const view = function(argv){
       id: argv.id,
   };
 
-  
-  if(datos_personaje.id != null){
+//--view --name --id, encontrar personaje por su Id.  
 
-    //View with Name
+  if(datos_personaje.id != null){
 
     const RyM_url = baseurl + "character/" + datos_personaje.id;
 
@@ -149,7 +152,7 @@ const view = function(argv){
 
   }else{
 
-    //View with Name and Id
+    //--view --name, encontrar personajes con el mismo nombre.
 
     const RyM_url = "https://rickandmortyapi.com/api/character/?name=" + datos_personaje.name;
 
