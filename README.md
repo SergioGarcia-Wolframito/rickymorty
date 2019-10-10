@@ -5,7 +5,7 @@ Aplicación escrita en el lenguaje Nodejs, que interactua con la API de rickandm
 Documentación de la API: 
 https://rickandmortyapi.com/documentation/#rest
 
-En esta aplicación hay 5 funciones que usan las librerias de npm, yargs y request, que se usan para darle utilidad a las funciones, a las que accede mediante los siguientes comandos : 
+En esta aplicación hay 5 funciones que usan las librerias de npm, yargs y request, que se usan para darle utilidad a las funciones, a las que se accede mediante los siguientes comandos : 
 
 Buscar personajes a partir de un nombre : 
 
@@ -19,7 +19,7 @@ Listar los nombres de todos los personajes :
 
 --list 
 
-Listar los https://rickandmortyapi.com/documentation/#restpersonajes de una página, dado que al ser tantos datos, estan paginados : 
+Listar los personajes de una página, dado que al ser tantos datos, estan paginados : 
 
 --list --page
 
